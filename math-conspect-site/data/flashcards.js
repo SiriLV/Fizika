@@ -1,0 +1,78 @@
+// Flashcards data for memorization
+const flashcardsData = {
+    algebra: [
+        { front: "Формула корней квадратного уравнения", back: "x₁,₂ = (-b ± √D) / 2a, где D = b² - 4ac" },
+        { front: "Теорема Виета для x² + px + q = 0", back: "x₁ + x₂ = -p, x₁ · x₂ = q" },
+        { front: "(a + b)²", back: "a² + 2ab + b²" },
+        { front: "(a - b)²", back: "a² - 2ab + b²" },
+        { front: "a² - b²", back: "(a - b)(a + b)" },
+        { front: "Что такое дискриминант?", back: "D = b² - 4ac — величина, определяющая количество корней квадратного уравнения" },
+        { front: "Если D > 0", back: "Два различных корня" },
+        { front: "Если D = 0", back: "Один корень (два совпадающих)" },
+        { front: "Если D < 0", back: "Нет действительных корней" },
+        { front: "a³ - b³", back: "(a - b)(a² + ab + b²)" },
+        { front: "a³ + b³", back: "(a + b)(a² - ab + b²)" },
+        { front: "Линейное уравнение ax + b = 0", back: "x = -b/a" }
+    ],
+    geometry: [
+        { front: "Теорема Пифагора", back: "a² + b² = c² (в прямоугольном треугольнике)" },
+        { front: "Площадь треугольника", back: "S = ah/2" },
+        { front: "Площадь круга", back: "S = πR²" },
+        { front: "Длина окружности", back: "C = 2πR" },
+        { front: "Сумма углов треугольника", back: "180°" },
+        { front: "Объём шара", back: "V = 4πR³/3" },
+        { front: "Площадь поверхности шара", back: "S = 4πR²" },
+        { front: "Объём цилиндра", back: "V = πR²h" },
+        { front: "Объём конуса", back: "V = πR²h/3" },
+        { front: "Признаки равенства треугольников", back: "1) По двум сторонам и углу между ними\n2) По стороне и двум прилежащим углам\n3) По трём сторонам" },
+        { front: "Свойства параллелограмма", back: "Противолежащие стороны равны и параллельны, диагонали делятся пополам" },
+        { front: "Формула Герона", back: "S = √[p(p-a)(p-b)(p-c)], где p — полупериметр" }
+    ],
+    trigonometry: [
+        { front: "Основное тригонометрическое тождество", back: "sin²α + cos²α = 1" },
+        { front: "sin(30°)", back: "1/2" },
+        { front: "cos(60°)", back: "1/2" },
+        { front: "sin(45°)", back: "√2/2" },
+        { front: "cos(45°)", back: "√2/2" },
+        { front: "sin(90°)", back: "1" },
+        { front: "cos(0°)", back: "1" },
+        { front: "tg(45°)", back: "1" },
+        { front: "sin(α + β)", back: "sin α cos β + cos α sin β" },
+        { front: "cos(α - β)", back: "cos α cos β + sin α sin β" },
+        { front: "sin(2α)", back: "2 sin α cos α" },
+        { front: "cos(2α)", back: "cos²α - sin²α" },
+        { front: "sin(90° - α)", back: "cos α" },
+        { front: "cos(180° - α)", back: "-cos α" }
+    ],
+    calculus: [
+        { front: "Определение производной", back: "f'(x) = lim(Δx→0) [f(x+Δx) - f(x)] / Δx" },
+        { front: "(xⁿ)'", back: "nxⁿ⁻¹" },
+        { front: "(sin x)'", back: "cos x" },
+        { front: "(cos x)'", back: "-sin x" },
+        { front: "(eˣ)'", back: "eˣ" },
+        { front: "(ln x)'", back: "1/x" },
+        { front: "∫ xⁿ dx", back: "xⁿ⁺¹/(n+1) + C" },
+        { front: "∫ sin x dx", back: "-cos x + C" },
+        { front: "∫ cos x dx", back: "sin x + C" },
+        { front: "Первый замечательный предел", back: "lim(x→0) sin(x)/x = 1" },
+        { front: "Второй замечательный предел", back: "lim(x→∞) (1 + 1/x)^x = e" },
+        { front: "(uv)'", back: "u'v + uv'" },
+        { front: "Формула Ньютона-Лейбница", back: "∫ₐᵇ f(x)dx = F(b) - F(a)" }
+    ],
+    physics: [
+        { front: "Равномерное движение", back: "s = vt" },
+        { front: "Равноускоренное движение (скорость)", back: "v = v₀ + at" },
+        { front: "Равноускоренное движение (путь)", back: "s = v₀t + at²/2" },
+        { front: "Второй закон Ньютона", back: "F = ma" },
+        { front: "Сила тяжести", back: "F = mg" },
+        { front: "Закон Гука", back: "F = kx" },
+        { front: "Сила трения", back: "F = μN" },
+        { front: "Закон всемирного тяготения", back: "F = Gm₁m₂/R²" },
+        { front: "Кинетическая энергия", back: "Eₖ = mv²/2" },
+        { front: "Потенциальная энергия", back: "Eₚ = mgh" },
+        { front: "Импульс тела", back: "p = mv" },
+        { front: "Мощность", back: "N = A/t = Fv" },
+        { front: "Закон Ома", back: "I = U/R" },
+        { front: "Закон Джоуля-Ленца", back: "Q = I²Rt" }
+    ]
+};

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математика и Физика - Полный конспект</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📚 Математика и Физика</h1>
+                <p class="subtitle">Полный интерактивный конспект с формулами, теорией и практикой</p>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-section="home">🏠 Главная</button>
+                <button class="nav-btn" data-section="theory">📖 Теория</button>
+                <button class="nav-btn" data-section="formulas">📐 Формулы</button>
+                <button class="nav-btn" data-section="practice">✏️ Практика</button>
+                <button class="nav-btn" data-section="flashcards">🎴 Карточки</button>
+                <button class="nav-btn" data-section="progress">📊 Прогресс</button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <div class="welcome-card">
+                    <h2>Добро пожаловать в математический конспект!</h2>
+                    <p>Здесь собраны все основные разделы математики и физики с подробными объяснениями, формулами и задачами.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <span class="feature-icon">📖</span>
+                            <h3>Теория</h3>
+                            <p>Подробные объяснения всех понятий и теорем</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">📐</span>
+                            <h3>Формулы</h3>
+                            <p>Все формулы с выводами и примерами</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">✏️</span>
+                            <h3>Задачи</h3>
+                            <p>Практические задания для закрепления</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🎴</span>
+                            <h3>Карточки</h3>
+                            <p>Карточки для запоминания формул</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-topics">0</span>
+                            <span class="stat-label">Тем изучено</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-formulas">0</span>
+                            <span class="stat-label">Формул известно</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="solved-problems">0</span>
+                            <span class="stat-label">Задач решено</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Theory Section -->
+            <section id="theory" class="section">
+                <div class="section-header">
+                    <h2>📖 Теория</h2>
+                    <div class="search-box">
+                        <input type="text" id="theory-search" placeholder="Поиск по теории...">
+                    </div>
+                </div>
+                
+                <div class="topics-grid" id="theory-topics">
+                    <!-- Topics will be loaded dynamically -->
+                </div>
+
+                <div class="topic-viewer" id="topic-viewer" style="display: none;">
+                    <button class="back-btn" onclick="closeTopic()">← Назад к темам</button>
+                    <div class="topic-content" id="topic-content"></div>
+                </div>
+            </section>
+
+            <!-- Formulas Section -->
+            <section id="formulas" class="section">
+                <div class="section-header">
+                    <h2>📐 Формулы</h2>
+                    <div class="search-box">
+                        <input type="text" id="formula-search" placeholder="Поиск формул...">
+                    </div>
+                </div>
+
+                <div class="formulas-container">
+                    <aside class="formula-sidebar">
+                        <h3>Разделы</h3>
+                        <ul class="formula-categories" id="formula-categories">
+                            <!-- Categories will be loaded dynamically -->
+                        </ul>
+                    </aside>
+                    
+                    <div class="formulas-main">
+                        <div class="formulas-list" id="formulas-list">
+                            <!-- Formulas will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula-modal" id="formula-modal" style="display: none;">
+                    <div class="modal-content">
+                        <button class="close-modal" onclick="closeFormulaModal()">×</button>
+                        <h2 id="modal-formula-title"></h2>
+                        <div class="formula-display" id="modal-formula-display"></div>
+                        <div class="formula-derivation" id="modal-formula-derivation"></div>
+                        <div class="formula-examples" id="modal-formula-examples"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Practice Section -->
+            <section id="practice" class="section">
+                <div class="section-header">
+                    <h2>✏️ Практика</h2>
+                </div>
+
+                <div class="practice-menu" id="practice-menu">
+                    <div class="practice-category" data-category="algebra">
+                        <span class="category-icon">🔢</span>
+                        <h3>Алгебра</h3>
+                        <p>Уравнения, неравенства, функции</p>
+                    </div>
+                    <div class="practice-category" data-category="geometry">
+                        <span class="category-icon">📐</span>
+                        <h3>Геометрия</h3>
+                        <p>Планиметрия, стереометрия</p>
+                    </div>
+                    <div class="practice-category" data-category="trigonometry">
+                        <span class="category-icon">📊</span>
+                        <h3>Тригонометрия</h3>
+                        <p>Тригонометрические функции и уравнения</p>
+                    </div>
+                    <div class="practice-category" data-category="calculus">
+                        <span class="category-icon">∫</span>
+                        <h3>Матанализ</h3>
+                        <p>Производные, интегралы, пределы</p>
+                    </div>
+                    <div class="practice-category" data-category="physics">
+                        <span class="category-icon">⚡</span>
+                        <h3>Физика</h3>
+                        <p>Механика, электричество, оптика</p>
+                    </div>
+                </div>
+
+                <div class="problem-viewer" id="problem-viewer" style="display: none;">
+                    <button class="back-btn" onclick="closeProblem()">← Назад к категориям</button>
+                    
+                    <div class="problem-header">
+                        <h3 id="problem-category-title"></h3>
+                        <div class="problem-stats">
+                            <span>Решено: <strong id="problems-solved-count">0</strong></span>
+                            <span>Всего: <strong id="problems-total-count">0</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="problem-container">
+                        <div class="problem-statement" id="problem-statement"></div>
+                        
+                        <div class="problem-input-area">
+                            <label>Ваш ответ:</label>
+                            <input type="text" id="problem-answer" placeholder="Введите ответ...">
+                            <button class="check-btn" onclick="checkAnswer()">Проверить</button>
+                        </div>
+
+                        <div class="problem-feedback" id="problem-feedback" style="display: none;"></div>
+                        
+                        <div class="problem-solution" id="problem-solution" style="display: none;">
+                            <h4>Решение:</h4>
+                            <div id="solution-content"></div>
+                        </div>
+
+                        <div class="problem-navigation">
+                            <button class="nav-btn-secondary" onclick="prevProblem()">← Предыдущая</button>
+                            <button class="nav-btn-primary" onclick="nextProblem()">Следующая →</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Flashcards Section -->
+            <section id="flashcards" class="section">
+                <div class="section-header">
+                    <h2>🎴 Карточки для запоминания</h2>
+                </div>
+
+                <div class="flashcards-setup">
+                    <div class="setup-options">
+                        <div class="option-group">
+                            <label>Выберите раздел:</label>
+                            <select id="flashcard-category">
+                                <option value="all">Все разделы</option>
+                                <option value="algebra">Алгебра</option>
+                                <option value="geometry">Геометрия</option>
+                                <option value="trigonometry">Тригонометрия</option>
+                                <option value="calculus">Матанализ</option>
+                                <option value="physics">Физика</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label>Количество карточек:</label>
+                            <select id="flashcard-count">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="all">Все</option>
+                            </select>
+                        </div>
+                        <button class="start-btn" onclick="startFlashcards()">Начать</button>
+                    </div>
+                </div>
+
+                <div class="flashcards-game" id="flashcards-game" style="display: none;">
+                    <div class="flashcard-progress">
+                        <span>Карточка <span id="current-card">1</span> из <span id="total-cards">10</span></span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="flashcard-progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-container">
+                        <div class="flashcard" id="flashcard" onclick="flipCard()">
+                            <div class="flashcard-front">
+                                <h3 id="card-front-text"></h3>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3 id="card-back-text"></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-controls">
+                        <button class="control-btn difficult" onclick="markCard('difficult')">😓 Сложно</button>
+                        <button class="control-btn normal" onclick="markCard('normal')">👍 Нормально</button>
+                        <button class="control-btn easy" onclick="markCard('easy')">😊 Легко</button>
+                    </div>
+
+                    <div class="flashcard-result" id="flashcard-result" style="display: none;">
+                        <h3>Результаты сессии</h3>
+                        <div class="result-stats">
+                            <div class="result-item">
+                                <span class="result-label">Легко:</span>
+                                <span class="result-value easy" id="result-easy">0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Нормально:</span>
+                                <span class="result-value normal" id="result-normal">0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Сложно:</span>
+                                <span class="result-value difficult" id="result-difficult">0</span>
+                            </div>
+                        </div>
+                        <button class="restart-btn" onclick="resetFlashcards()">Начать заново</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section id="progress" class="section">
+                <div class="section-header">
+                    <h2>📊 Ваш прогресс</h2>
+                    <button class="reset-btn" onclick="resetProgress()">⚠️ Сбросить прогресс</button>
+                </div>
+
+                <div class="progress-overview">
+                    <div class="progress-card">
+                        <h3>Общая статистика</h3>
+                        <div class="stats-grid">
+                            <div class="mini-stat">
+                                <span class="mini-stat-value" id="stat-topics">0</span>
+                                <span class="mini-stat-label">Тем изучено</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="mini-stat-value" id="stat-formulas">0</span>
+                                <span class="mini-stat-label">Формул выучено</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="mini-stat-value" id="stat-problems">0</span>
+                                <span class="mini-stat-label">Задач решено</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="mini-stat-value" id="stat-cards">0</span>
+                                <span class="mini-stat-label">Карточек пройдено</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-card">
+                        <h3>Прогресс по разделам</h3>
+                        <div class="section-progress" id="section-progress">
+                            <!-- Progress bars will be loaded dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="progress-card">
+                        <h3>История активности</h3>
+                        <div class="activity-chart" id="activity-chart">
+                            <!-- Chart will be rendered here -->
+                        </div>
+                    </div>
+
+                    <div class="progress-card">
+                        <h3>Достижения</h3>
+                        <div class="achievements-grid" id="achievements-grid">
+                            <!-- Achievements will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2024 Математический конспект. Все материалы представлены в образовательных целях.</p>
+        </footer>
+    </div>
+
+    <script src="data/topics.js"></script>
+    <script src="data/formulas.js"></script>
+    <script src="data/problems.js"></script>
+    <script src="data/flashcards.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
