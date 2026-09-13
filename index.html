@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полный курс физики - Конспект для подготовки к ЕГЭ и ЦТ</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>📚 ФИЗИКА - Полный курс</h1>
+            <p class="subtitle">Подготовка к ЕГЭ и ЦТ | Все формулы, теория и задачи</p>
+            <nav class="nav">
+                <button class="nav-btn active" data-section="mechanics">Механика</button>
+                <button class="nav-btn" data-section="molecular">Молекулярная физика</button>
+                <button class="nav-btn" data-section="thermo">Термодинамика</button>
+                <button class="nav-btn" data-section="electrostatics">Электростатика</button>
+                <button class="nav-btn" data-section="current">Постоянный ток</button>
+                <button class="nav-btn" data-section="magnetic">Магнетизм</button>
+                <button class="nav-btn" data-section="optics">Оптика</button>
+                <button class="nav-btn" data-section="quantum">Квантовая физика</button>
+                <button class="nav-btn" data-section="nuclear">Ядерная физика</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="theory">📖 Теория</button>
+                <button class="tab-btn" data-tab="formulas">📐 Формулы</button>
+                <button class="tab-btn" data-tab="problems">✏️ Задачи</button>
+                <button class="tab-btn" data-tab="flashcards">🎴 Карточки</button>
+            </div>
+
+            <div id="content-area" class="content-area">
+                <!-- Контент загружается динамически -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Физика - Полный курс подготовки. Все материалы из официальных пособий.</p>
+        </div>
+    </footer>
+
+    <script src="data/topics.js"></script>
+    <script src="data/formulas.js"></script>
+    <script src="data/problems.js"></script>
+    <script src="data/flashcards.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
